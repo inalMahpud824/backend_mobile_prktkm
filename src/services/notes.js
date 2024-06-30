@@ -17,7 +17,7 @@ export const getNotes = async (userId, page = 1, limit = 5) => {
       usersId: userId,
     },
     skip: (page - 1) * limit,
-    take: limit,
+    take: Number(limit),
   });
   if (notes.length === 0) {
     throw new HttpException(404, "No notes found");
